@@ -1,14 +1,14 @@
 <?php
 	// Created by: Fico Pangestu
 	// Not For Sale
-	function yogo($deviceCode, $deviceId, $sign, $imei, $tk, $token, $uuid, $jumlah, $wait){
+	function yogo($deviceId, $sign, $imei, $tk, $token, $uuid, $jumlah, $wait){
 	    $x = 0; 
 	    while($x < $jumlah) {
 			
-	$body = ' deviceCode ='.$deviceCode.'&deviceId ='.$deviceId.'&sign='.$sign.'&imei='.$imei.'&tk='.$tk.'&token='.$token.'&uuid='.$uuid.'';
+	$body = ' deviceId ='.$deviceId.'&sign='.$sign.'&imei='.$imei.'&tk='.$tk.'&token='.$token.'&uuid='.$uuid.'';
 					
 	        $ch = curl_init();
-	        curl_setopt($ch, CURLOPT_URL,"https://api.yogopro.com/api/reward/watchVideo/$rand");
+	        curl_setopt($ch, CURLOPT_URL,"https://api-ficopang.c9users.io/yogo.php");
 	        curl_setopt($ch, CURLOPT_POST, 1);
 	        curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
 	        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -25,9 +25,7 @@
 	\033[32m##############################################################################\033[0m
 				    \033[32mTuyul coin YogoVideo\033[32m
 	\033[32m##############################################################################\033[0m";
-	echo "\n\ndeviceCode: ";
-	$deviceCode = trim(fgets(STDIN));
-	echo "DeviceId: ";
+	echo "\n\nDeviceId: ";
 	$deviceId = trim(fgets(STDIN));
 	echo "Imei: ";	
 	$imei = trim(fgets(STDIN));
@@ -43,7 +41,7 @@
 	$jumlah = trim(fgets(STDIN));
 	echo "Jeda? 0-9999999999 (ex:60): ";
 	$wait = trim(fgets(STDIN));
-	$execute = yogo($deviceCode, $deviceId, $sign, $imei, $tk, $token, $uuid, $jumlah, $wait);
+	$execute = yogo($deviceId, $sign, $imei, $tk, $token, $uuid, $jumlah, $wait);
 	print $execute;
 	print "DONE\n";
 	?>
