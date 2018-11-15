@@ -1,23 +1,24 @@
 <?php
+// FB : MANGGALA FEBRI VALENTINO
 echo "\n\ndeviceCode: ";
-	$deviceCode = trim(fgets(STDIN));
-	echo "DeviceId: ";
-	$deviceId = trim(fgets(STDIN));
-	echo "Sign: ";	
-	$deviceId = trim(fgets(STDIN));
-	$sign = trim(fgets(STDIN));	
-	echo "tk: ";
-	echo "Token: ";
-	$token = trim(fgets(STDIN));
-	echo "UUID: ";
-	$uuid = trim(fgets(STDIN));
-	echo "Jumlah: ";
-	$jumlah = trim(fgets(STDIN));
-	echo "Jeda? 0-9999999999 (ex:60): ";
-	$wait = trim(fgets(STDIN));
-	$execute = yogo($deviceCode, $deviceId, $sign, $tk, $token, $uuid, $jumlah, $wait);
-	print $execute;
-	print "DONE\n";
+$deviceCode 	= trim(fgets(STDIN));
+echo "deviceId : ";
+$deviceId 	= trim(fgets(STDIN));
+echo "imei : ";
+$imei =trim(fgets(STDIN));
+echo "sign : ";
+$sign =trim(fgets(STDIN))
+echo "tk : ";
+$tk =trim(fgets(STDIN))
+echo "token : ";
+$token =trim(fgets(STDIN))
+echo "uuid : ";
+$uuid =trim(fgets(STDIN))
+echo "Masukkan Jumlah Suntik : ";
+$jumlah	= trim(fgets(STDIN));
+echo "SetSleep : ";
+$wait	= trim(fgets(STDIN));
+$i=0;
 while($i<$jumlah){
 			sleep($wait);
 			$i++;
