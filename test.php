@@ -1,11 +1,11 @@
 <?php
 	// Created by: Fico Pangestu
 	// Not For Sale
-	function yogo($deviceCode, $deviceId, $sign, $tk, $token, $uuid, $jumlah, $wait){
+	function yogo($deviceCode, $deviceId, $sign, $imei, $tk, $token, $uuid, $jumlah, $wait){
 	    $x = 0; 
 	    while($x < $jumlah) {
 			
-	$body = ' deviceCode ='.$deviceCode.'& deviceId ='.$deviceId.'&sign='$sign.'&tk='.$tk.'&token='.$token.'&uuid='.$uuid.'';
+	$body = ' deviceCode ='.$deviceCode.'&deviceId ='.$deviceId.'&sign='.$sign.'&imei='.$imei.'&tk='.$tk.'&token='.$token.'&uuid='.$uuid.'';
 					
 	        $ch = curl_init();
 	        curl_setopt($ch, CURLOPT_URL,"https://api.yogopro.com/api/reward/watchVideo/$rand");
@@ -24,16 +24,17 @@
 	print "
 	\033[32m##############################################################################\033[0m
 				    \033[32mTuyul coin YogoVideo\033[32m
-						
 	\033[32m##############################################################################\033[0m";
 	echo "\n\ndeviceCode: ";
 	$deviceCode = trim(fgets(STDIN));
 	echo "DeviceId: ";
 	$deviceId = trim(fgets(STDIN));
+	echo "Imei: ";	
+	$imei = trim(fgets(STDIN));
 	echo "Sign: ";	
-	$deviceId = trim(fgets(STDIN));
 	$sign = trim(fgets(STDIN));	
 	echo "tk: ";
+	$tk = trim(fgets(STDIN));
 	echo "Token: ";
 	$token = trim(fgets(STDIN));
 	echo "UUID: ";
@@ -42,7 +43,7 @@
 	$jumlah = trim(fgets(STDIN));
 	echo "Jeda? 0-9999999999 (ex:60): ";
 	$wait = trim(fgets(STDIN));
-	$execute = yogo($deviceCode, $deviceId, $sign, $tk, $token, $uuid, $jumlah, $wait);
+	$execute = yogo($deviceCode, $deviceId, $sign, $imei, $tk, $token, $uuid, $jumlah, $wait);
 	print $execute;
 	print "DONE\n";
 	?>
